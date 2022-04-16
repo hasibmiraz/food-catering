@@ -1,6 +1,7 @@
 import { faBurger, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -20,10 +21,16 @@ const Navbar = () => {
         <h1 className="text-2xl md:text-3xl">FOOD CATERING.</h1>
       </div>
       <ul className="hidden md:flex">
-        <li className="p-4 cursor-pointer hover:text-purple-400">HOME</li>
+        <Link to="/">
+          <li className="p-4 cursor-pointer hover:text-purple-400">HOME</li>
+        </Link>
         <li className="p-4 cursor-pointer hover:text-purple-400">SERVICES</li>
-        <li className="p-4 cursor-pointer hover:text-purple-400">BLOGS</li>
-        <li className="p-4 cursor-pointer hover:text-purple-400">ABOUT ME</li>
+        <Link to="/blogs">
+          <li className="p-4 cursor-pointer hover:text-purple-400">BLOGS</li>
+        </Link>
+        <Link to="/aboutme">
+          <li className="p-4 cursor-pointer hover:text-purple-400">ABOUT ME</li>
+        </Link>
       </ul>
       <div className="hidden md:block">
         <button className="p-4 hover:text-purple-400">Sign In</button>

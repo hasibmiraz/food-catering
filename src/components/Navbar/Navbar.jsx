@@ -92,8 +92,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex flex-col">
-          <button className="my-6 bg-white text-black py-4">Sign In</button>
-          <button className="bg-white text-black py-4">Register</button>
+          <button className="my-6 bg-white text-black py-4 hover:bg-white/80">
+            Sign In
+          </button>
+          <button className="bg-white text-black py-4 hover:bg-white/80">
+            Register
+          </button>
         </div>
       </div>
     </div>

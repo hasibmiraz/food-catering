@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "img": "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
+    "package_name": "Basic",
+    "services": [
+      "Daily 1 time meal",
+      "Vegetarian/Non-vegetarian",
+      "No special meal",
+      "Fixed food delivery"
+    ],
+    "rate": 20
+  },
+  {
+    "id": 2,
+    "img": "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+    "package_name": "Proffessional",
+    "services": [
+      "Daily 2 time meal",
+      "Vegetarian/Non-vegetarian",
+      "Weekly 1 day special meal",
+      "Fixed food delivery"
+    ],
+    "rate": 34.99
+  },
+  {
+    "id": 3,
+    "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "package_name": "Ultimate",
+    "services": [
+      "Daily 1 time meal",
+      "Vegetarian/Non-vegetarian",
+      "Weekly 3 day special meal",
+      "Food choice based on personal preference"
+    ],
+    "rate": 49.99
+  }
+]

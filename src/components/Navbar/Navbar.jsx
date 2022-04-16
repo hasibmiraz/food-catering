@@ -18,19 +18,31 @@ const Navbar = () => {
       </div>
       <ul className="hidden md:flex">
         <Link to="/">
-          <li className="p-4 cursor-pointer hover:text-purple-400">HOME</li>
+          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
+            HOME
+          </li>
         </Link>
-        <li className="p-4 cursor-pointer hover:text-purple-400">SERVICES</li>
+        <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
+          SERVICES
+        </li>
         <Link to="/blogs">
-          <li className="p-4 cursor-pointer hover:text-purple-400">BLOGS</li>
+          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
+            BLOGS
+          </li>
         </Link>
         <Link to="/aboutme">
-          <li className="p-4 cursor-pointer hover:text-purple-400">ABOUT ME</li>
+          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
+            ABOUT ME
+          </li>
         </Link>
       </ul>
       <div className="hidden md:block">
-        <button className="p-4 hover:text-purple-400">Sign In</button>
-        <button className="p-4 hover:text-purple-400">Register</button>
+        <button className="px-4 py-2 hover:bg-white hover:text-black">
+          Sign In
+        </button>
+        <button className="px-4 py-2 hover:bg-white hover:text-black">
+          Register
+        </button>
       </div>
       {/* Desktop menu end */}
 

@@ -22,9 +22,11 @@ const Navbar = () => {
             HOME
           </li>
         </Link>
-        <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
-          SERVICES
-        </li>
+        <Link to="home#services">
+          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
+            SERVICES
+          </li>
+        </Link>
         <Link to="/blogs">
           <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
             BLOGS

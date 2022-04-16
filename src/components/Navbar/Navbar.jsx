@@ -11,11 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className={
-        'h-16 flex justify-between items-center bg-blue-900 text-white px-2 md:px-4'
-      }
-    >
+    <div className="h-16 flex justify-between items-center bg-blue-900 text-white px-2 md:px-4">
       {/* Desktop menu */}
       <div>
         <h1 className="text-2xl md:text-3xl">FOOD CATERING.</h1>
@@ -61,18 +57,24 @@ const Navbar = () => {
         </div>
         <div>
           <ul>
-            <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
-              HOME
-            </li>
+            <Link to="/">
+              <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
+                HOME
+              </li>
+            </Link>
             <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
               SERVICES
             </li>
-            <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
-              BLOGS
-            </li>
-            <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
-              ABOUT ME
-            </li>
+            <Link to="/blogs">
+              <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
+                BLOGS
+              </li>
+            </Link>
+            <Link to="/aboutme">
+              <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
+                ABOUT ME
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="flex flex-col">

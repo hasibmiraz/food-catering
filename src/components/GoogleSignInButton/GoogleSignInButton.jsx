@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const GoogleSignInButton = () => {
@@ -8,9 +8,13 @@ const GoogleSignInButton = () => {
     useSignInWithGoogle(auth);
   const navigate = useNavigate();
 
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
+
   if (googleUser) {
-    navigate('/');
+    navigate(from, { replace: true });
   }
+
   return (
     <div>
       <p className="text-red-600 my-3">{googleError?.message}</p>

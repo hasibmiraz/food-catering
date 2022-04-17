@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
@@ -9,6 +9,9 @@ import GoogleSignInButton from '../GoogleSignInButton/GoogleSignInButton';
 const SignIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
 
   const emailRef = useRef('');
   const passwordRef = useRef('');
@@ -23,7 +26,7 @@ const SignIn = () => {
     toast('Logged in successfully');
   };
 
-  if (user) navigate('/');
+  if (user) navigate(from, { replace: true });
 
   return (
     <div>

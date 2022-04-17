@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +10,9 @@ import GoogleSignInButton from '../GoogleSignInButton/GoogleSignInButton';
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
 
   const emailRef = useRef('');
   const passwordRef = useRef('');
@@ -40,7 +43,7 @@ const Register = () => {
   };
 
   if (user) {
-    navigate('/');
+    navigate(from, { replace: true });
   }
 
   return (

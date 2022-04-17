@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn';
 
 import { ToastContainer } from 'react-toastify';
 import ResetPassword from './components/ResetPassword/ResetPassword';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/checkout/:serviceId" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

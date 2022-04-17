@@ -1,9 +1,10 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
-  const { package_name, img, services, rate } = service;
+  const { id, package_name, img, services, rate } = service;
   return (
     <div>
       <div className="w-4/5 mx-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -32,10 +33,13 @@ const Service = ({ service }) => {
             Monthly: ${rate}/ person
           </p>
 
-          <a className="inline-flex items-center py-2 px-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <Link
+            to={`/checkout/${id}`}
+            className="inline-flex items-center py-2 px-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
             Proceed Checkout{' '}
             <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import banner from '../../images/food-banner.jpg';
 import Footer from '../Footer/Footer';
 import Services from '../Services/Services';
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div
@@ -26,7 +28,10 @@ const Home = () => {
             added with the food.
           </p>
           <div className="flex justify-center mt-5 flex-col md:flex-row">
-            <button className="text-white p-4 mx-auto my-3 md:m-3 rounded-lg bg-purple-400 hover:bg-purple-600 w-4/5 md:w-60">
+            <button
+              onClick={() => navigate('/aboutme')}
+              className="text-white p-4 mx-auto my-3 md:m-3 rounded-lg bg-purple-400 hover:bg-purple-600 w-4/5 md:w-60"
+            >
               Learn More
             </button>
             <button className="text-white p-4 mx-auto my-3 md:m-3 rounded-lg bg-purple-400 hover:bg-purple-600 w-4/5 md:w-60">

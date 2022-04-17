@@ -11,7 +11,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="my-5  mx-auto">
+    <div className="my-5 mx-auto">
       <h1 className="text-center text-4xl my-10 font-bold text-blue-500">
         Make sure you join our <br />
         catering subscription and lead a healthy life

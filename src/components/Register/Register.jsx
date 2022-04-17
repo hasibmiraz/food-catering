@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import auth from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
@@ -9,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
 
   const emailRef = useRef('');
   const passwordRef = useRef('');
@@ -38,7 +43,7 @@ const Register = () => {
     }
   };
 
-  if (user) {
+  if (user || googleUser) {
     navigate('/');
   }
 
@@ -88,7 +93,7 @@ const Register = () => {
             type="password"
             id="repeat-password"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-            required=""
+            required
           />
         </div>
         <div className="flex items-start mb-6">
@@ -99,7 +104,7 @@ const Register = () => {
               aria-describedby="terms"
               type="checkbox"
               className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-              required=""
+              required
             />
           </div>
           <div className="ml-3 text-sm">
@@ -111,15 +116,26 @@ const Register = () => {
             </label>
           </div>
         </div>
-        <p className="text-red-600 my-3">{inputError || error?.message}</p>
+        <p className="text-red-600 my-3">
+          {inputError || error?.message || googleError?.message}
+        </p>
         <button
           disabled={loading || !check}
           type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           {loading ? 'Registering...' : 'Register'}
         </button>
       </form>
+      <hr className="my-5" />
+      <button
+        onClick={() => signInWithGoogle()}
+        disabled={googleLoading}
+        type="submit"
+        className="text-white w-full bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 mt-3"
+      >
+        {googleLoading ? 'Signing In...' : 'Sign In With Google'}
+      </button>
       <p className="mt-5">
         Already have an account? Please{' '}
         <Link to="/signin">

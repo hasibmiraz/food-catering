@@ -22,6 +22,7 @@ npm start
 - The food is delivered according to the
 - It is created using react router so it will work as a SPA.
 - You can sign in or sign up with email and password or third party login is also applicable.
+- Some reviews of the premium customers also has been attached below
   <br/>
 
 ---

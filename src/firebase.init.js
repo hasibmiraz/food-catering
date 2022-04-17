@@ -4,12 +4,12 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId,
+  apiKey: 'AIzaSyAT3O27k3In-ZTDh1LmdgDzy1CIyjahj_Q',
+  authDomain: 'food-catering-c62df.firebaseapp.com',
+  projectId: 'food-catering-c62df',
+  storageBucket: 'food-catering-c62df.appspot.com',
+  messagingSenderId: '1039231662643',
+  appId: '1:1039231662643:web:810405f5a399c2e45a4146',
 };
 
 // Initialize Firebase

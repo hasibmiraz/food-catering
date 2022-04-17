@@ -1,10 +1,16 @@
 import { faBurger, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+  console.log(user);
   const [nav, setNav] = useState(false);
+  const navigate = useNavigate();
 
   const handleNav = () => {
     setNav(!nav);
@@ -39,12 +45,29 @@ const Navbar = () => {
         </Link>
       </ul>
       <div className="hidden md:block">
-        <button className="px-4 py-2 hover:bg-white hover:text-black">
-          Sign In
-        </button>
-        <button className="px-4 py-2 hover:bg-white hover:text-black">
-          Register
-        </button>
+        {user ? (
+          <button
+            onClick={() => signOut(auth)}
+            className="px-4 py-2 hover:bg-white hover:text-black"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <>
+            <button
+              onClick={() => navigate('/signin')}
+              className="px-4 py-2 hover:bg-white hover:text-black"
+            >
+              Sign In
+            </button>
+            <button
+              onClick={() => navigate('/register')}
+              className="px-4 py-2 hover:bg-white hover:text-black"
+            >
+              Register
+            </button>
+          </>
+        )}
       </div>
       {/* Desktop menu end */}
 
@@ -92,10 +115,16 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex flex-col">
-          <button className="my-6 bg-white text-black py-4 hover:bg-white/80">
+          <button
+            onClick={() => navigate('/signin')}
+            className="my-6 bg-white text-black py-4 hover:bg-white/80"
+          >
             Sign In
           </button>
-          <button className="bg-white text-black py-4 hover:bg-white/80">
+          <button
+            onClick={() => navigate('/register')}
+            className="bg-white text-black py-4 hover:bg-white/80"
+          >
             Register
           </button>
         </div>

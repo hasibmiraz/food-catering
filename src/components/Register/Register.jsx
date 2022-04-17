@@ -1,19 +1,15 @@
 import React, { useRef, useState } from 'react';
 import auth from '../../firebase.init';
-import {
-  useCreateUserWithEmailAndPassword,
-  useSignInWithGoogle,
-} from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GoogleSignInButton from '../GoogleSignInButton/GoogleSignInButton';
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
-    useSignInWithGoogle(auth);
 
   const emailRef = useRef('');
   const passwordRef = useRef('');
@@ -43,7 +39,7 @@ const Register = () => {
     }
   };
 
-  if (user || googleUser) {
+  if (user) {
     navigate('/');
   }
 
@@ -116,9 +112,7 @@ const Register = () => {
             </label>
           </div>
         </div>
-        <p className="text-red-600 my-3">
-          {inputError || error?.message || googleError?.message}
-        </p>
+        <p className="text-red-600 my-3">{inputError || error?.message}</p>
         <button
           disabled={loading || !check}
           type="submit"
@@ -128,14 +122,7 @@ const Register = () => {
         </button>
       </form>
       <hr className="my-5" />
-      <button
-        onClick={() => signInWithGoogle()}
-        disabled={googleLoading}
-        type="submit"
-        className="text-white w-full bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 mt-3"
-      >
-        {googleLoading ? 'Signing In...' : 'Sign In With Google'}
-      </button>
+      <GoogleSignInButton />
       <p className="mt-5">
         Already have an account? Please{' '}
         <Link to="/signin">

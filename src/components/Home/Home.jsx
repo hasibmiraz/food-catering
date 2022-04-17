@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from '../../images/food-banner.jpg';
+import Footer from '../Footer/Footer';
 import Services from '../Services/Services';
 
 const Home = () => {
@@ -35,6 +36,8 @@ const Home = () => {
         </div>
       </div>
       <Services />
+
+      <Footer />
     </>
   );
 };

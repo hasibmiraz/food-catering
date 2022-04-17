@@ -27,11 +27,6 @@ const Navbar = () => {
             HOME
           </li>
         </Link>
-        <Link to="home#services">
-          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
-            SERVICES
-          </li>
-        </Link>
         <Link to="/blogs">
           <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
             BLOGS
@@ -98,9 +93,6 @@ const Navbar = () => {
                 HOME
               </li>
             </Link>
-            <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
-              SERVICES
-            </li>
             <Link to="/blogs">
               <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
                 BLOGS

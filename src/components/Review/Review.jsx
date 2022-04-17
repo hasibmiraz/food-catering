@@ -25,28 +25,23 @@ const Review = ({ review }) => {
             <div>
               <FontAwesomeIcon
                 icon={faStar}
-                size={20}
-                className="text-amber-600"
+                className="text-amber-600 text-lg"
               />
               <FontAwesomeIcon
                 icon={faStar}
-                size={20}
-                className="text-amber-600"
+                className="text-amber-600 text-lg"
               />
               <FontAwesomeIcon
                 icon={faStar}
-                size={20}
-                className="text-amber-600"
+                className="text-amber-600 text-lg"
               />
               <FontAwesomeIcon
                 icon={faStar}
-                size={20}
-                className="text-amber-600"
+                className="text-amber-600 text-lg"
               />
               <FontAwesomeIcon
                 icon={faStar}
-                size={20}
-                className="text-amber-600"
+                className="text-amber-600 text-lg"
               />
             </div>
             <p className="text-xl font-medium text-indigo-500">{name}</p>

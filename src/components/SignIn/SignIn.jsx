@@ -1,10 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
-  const handleLogin = (e) => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await signInWithEmailAndPassword(email, password);
+    toast('Logged in successfully');
   };
+
+  if (user) navigate('/');
 
   return (
     <div>
@@ -18,6 +36,7 @@ const SignIn = () => {
               Your email
             </label>
             <input
+              ref={emailRef}
               type="email"
               id="email"
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
@@ -33,6 +52,7 @@ const SignIn = () => {
               Your password
             </label>
             <input
+              ref={passwordRef}
               type="password"
               id="password"
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
@@ -40,20 +60,22 @@ const SignIn = () => {
             />
           </div>
 
-          <p className="text-red-600 my-3"></p>
+          <p className="text-red-600 my-3">{error?.message}</p>
           <button
+            disabled={loading}
             type="submit"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Sign In
+            {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <p className="mt-5">
+        <p className="my-5">
           Don't have an account? Please{' '}
           <Link to="/register">
             <span className="text-blue-600">Register</span>
           </Link>
         </p>
+        <hr />
       </div>
     </div>
   );

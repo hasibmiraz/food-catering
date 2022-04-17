@@ -8,10 +8,13 @@ import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 import SignIn from './components/SignIn/SignIn';
 
+import { ToastContainer } from 'react-toastify';
+
 function App() {
   return (
     <div>
       <Navbar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />

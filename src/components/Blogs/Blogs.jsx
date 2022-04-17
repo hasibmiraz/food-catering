@@ -73,7 +73,7 @@ const Blogs = () => {
           for authentication or for login and signup purpose. It helps us to use
           3rd party login facility. There are many alternatives of firebase.
           Such as:
-          <ul class="list-disc list-inside dark:text-gray-400 mt-3 ml-5">
+          <ul className="list-disc list-inside dark:text-gray-400 mt-3 ml-5">
             <li>Passport</li>
             <li>Amazon Cognito</li>
             <li>Auth0</li>
@@ -90,7 +90,7 @@ const Blogs = () => {
         <p className="my-4">
           <span className="text-gray-500">Answer:</span> Firebase provides the
           following services other than authentication. Such as:
-          <ul class="list-decimal list-inside dark:text-gray-400 mt-3 ml-5">
+          <ul className="list-decimal list-inside dark:text-gray-400 mt-3 ml-5">
             <li>Google Analytics</li>
             <li>Cloud Function</li>
             <li>Realtime Database</li>

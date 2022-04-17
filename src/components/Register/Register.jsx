@@ -3,6 +3,8 @@ import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { toast } from 'react-toastify';
+
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -31,6 +33,7 @@ const Register = () => {
       setInputError('The passwords did not match.');
     } else {
       await createUserWithEmailAndPassword(email, password);
+      toast('Regestration completed');
     }
   };
 

@@ -71,7 +71,7 @@ const Navbar = () => {
       {/* Desktop menu end */}
 
       {/* Burger menu */}
-      <div onClick={handleNav} className="md:hidden z-10">
+      <div onClick={handleNav} className="md:hidden z-30">
         {nav ? (
           <FontAwesomeIcon icon={faX} className="text-xl" />
         ) : (
@@ -84,7 +84,7 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? 'absolute left-0 top-0 w-full bg-blue-900 px-4 py-7 flex flex-col'
+            ? 'absolute left-0 top-0 w-full bg-blue-900 px-4 py-7 flex flex-col z-20'
             : ' absolute left-[-100%]'
         }
       >
@@ -114,18 +114,29 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex flex-col">
-          <button
-            onClick={() => navigate('/signin')}
-            className="my-6 bg-white text-black py-4 hover:bg-white/80"
-          >
-            Sign In
-          </button>
-          <button
-            onClick={() => navigate('/register')}
-            className="bg-white text-black py-4 hover:bg-white/80"
-          >
-            Register
-          </button>
+          {user ? (
+            <button
+              onClick={() => signOut(auth)}
+              className="my-6 bg-white text-black py-4 hover:bg-white/80"
+            >
+              Signout
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={() => navigate('/signin')}
+                className="my-6 bg-white text-black py-4 hover:bg-white/80"
+              >
+                Sign In
+              </button>
+              <button
+                onClick={() => navigate('/register')}
+                className="bg-white text-black py-4 hover:bg-white/80"
+              >
+                Register
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

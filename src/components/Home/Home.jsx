@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import banner from '../../images/food-banner.jpg';
 import Footer from '../Footer/Footer';
+import Reviews from '../Reviews/Reviews';
 import Services from '../Services/Services';
 
 const Home = () => {
@@ -41,7 +42,7 @@ const Home = () => {
         </div>
       </div>
       <Services />
-
+      <Reviews />
       <Footer />
     </>
   );

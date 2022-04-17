@@ -9,6 +9,7 @@ import Register from './components/Register/Register';
 import SignIn from './components/SignIn/SignIn';
 
 import { ToastContainer } from 'react-toastify';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/aboutme" element={<AboutMe />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

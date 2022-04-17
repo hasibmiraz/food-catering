@@ -8,7 +8,6 @@ import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
 

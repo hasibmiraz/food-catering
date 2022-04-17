@@ -69,12 +69,20 @@ const SignIn = () => {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <p className="my-5">
-          Don't have an account? Please{' '}
-          <Link to="/register">
-            <span className="text-blue-600">Register</span>
-          </Link>
-        </p>
+        <div className="flex flex-col md:flex-row justify-between">
+          <p className="my-5">
+            Don't have an account? Please{' '}
+            <Link to="/register">
+              <span className="text-blue-600">Register</span>
+            </Link>
+          </p>
+          <p className="my-5">
+            Forgot password?{' '}
+            <Link to="/resetpassword">
+              <span className="text-blue-600">Reset password</span>
+            </Link>
+          </p>
+        </div>
         <hr />
       </div>
     </div>

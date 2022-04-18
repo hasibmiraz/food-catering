@@ -1,7 +1,7 @@
 import { faBurger, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
@@ -110,20 +110,37 @@ const Navbar = () => {
           <h1 className="text-2xl">FOOD CATERING.</h1>
         </div>
         <div>
-          <ul>
-            <Link to="/">
-              <li className="p-4 my-2 hover:text-black hover:bg-white">HOME</li>
-            </Link>
-            <Link to="/blogs">
-              <li className="p-4 my-2 hover:text-black hover:bg-white">
-                BLOGS
-              </li>
-            </Link>
-            <Link to="/aboutme">
-              <li className="p-4 my-2 hover:text-black hover:bg-white">
-                ABOUT ME
-              </li>
-            </Link>
+          <ul className="flex flex-col">
+            <NavLink
+              to="/"
+              className={(navInfo) =>
+                navInfo.isActive
+                  ? 'p-4 my-2 bg-white text-black'
+                  : 'p-4 my-2 hover:bg-white hover:text-black'
+              }
+            >
+              HOME
+            </NavLink>
+            <NavLink
+              to="/blogs"
+              className={(navInfo) =>
+                navInfo.isActive
+                  ? 'p-4 my-2 bg-white text-black'
+                  : 'p-4 my-2 hover:bg-white hover:text-black'
+              }
+            >
+              BLOGS
+            </NavLink>
+            <NavLink
+              to="/aboutme"
+              className={(navInfo) =>
+                navInfo.isActive
+                  ? 'p-4 my-2 bg-white text-black'
+                  : 'p-4 my-2 hover:bg-white hover:text-black'
+              }
+            >
+              ABOUT ME
+            </NavLink>
           </ul>
         </div>
         <div className="flex flex-col">

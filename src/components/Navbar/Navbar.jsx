@@ -1,7 +1,7 @@
 import { faBurger, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
@@ -22,21 +22,36 @@ const Navbar = () => {
         <h1 className="text-2xl md:text-3xl">FOOD CATERING.</h1>
       </div>
       <ul className="hidden md:flex">
-        <Link to="/">
-          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
-            HOME
-          </li>
-        </Link>
-        <Link to="/blogs">
-          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
-            BLOGS
-          </li>
-        </Link>
-        <Link to="/aboutme">
-          <li className="px-4 py-2 cursor-pointer hover:bg-white hover:text-black">
-            ABOUT ME
-          </li>
-        </Link>
+        <NavLink
+          to="/"
+          className={(navInfo) =>
+            navInfo.isActive
+              ? 'mx-3 px-4 py-2 bg-white text-black'
+              : 'mx-3 px-4 py-2 hover:bg-white hover:text-black'
+          }
+        >
+          HOME
+        </NavLink>
+        <NavLink
+          to="/blogs"
+          className={(navInfo) =>
+            navInfo.isActive
+              ? 'mx-3 px-4 py-2 bg-white text-black'
+              : 'mx-3 px-4 py-2 hover:bg-white hover:text-black'
+          }
+        >
+          BLOGS
+        </NavLink>
+        <NavLink
+          to="/aboutme"
+          className={(navInfo) =>
+            navInfo.isActive
+              ? 'mx-3 px-4 py-2 bg-white text-black'
+              : 'mx-3 px-4 py-2 hover:bg-white hover:text-black'
+          }
+        >
+          ABOUT ME
+        </NavLink>
       </ul>
       <div className="hidden md:block">
         {user ? (
@@ -48,18 +63,26 @@ const Navbar = () => {
           </button>
         ) : (
           <>
-            <button
-              onClick={() => navigate('/signin')}
-              className="px-4 py-2 hover:bg-white hover:text-black"
+            <NavLink
+              to="/signin"
+              className={(navInfo) =>
+                navInfo.isActive
+                  ? 'mx-3 px-4 py-2 bg-white text-black'
+                  : 'mx-3 px-4 py-2 hover:bg-white hover:text-black'
+              }
             >
               Sign In
-            </button>
-            <button
-              onClick={() => navigate('/register')}
-              className="px-4 py-2 hover:bg-white hover:text-black"
+            </NavLink>
+            <NavLink
+              to="/register"
+              className={(navInfo) =>
+                navInfo.isActive
+                  ? 'mx-3 px-4 py-2 bg-white text-black'
+                  : 'mx-3 px-4 py-2 hover:bg-white hover:text-black'
+              }
             >
               Register
-            </button>
+            </NavLink>
           </>
         )}
       </div>
@@ -89,17 +112,15 @@ const Navbar = () => {
         <div>
           <ul>
             <Link to="/">
-              <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
-                HOME
-              </li>
+              <li className="p-4 my-2 hover:text-black hover:bg-white">HOME</li>
             </Link>
             <Link to="/blogs">
-              <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
+              <li className="p-4 my-2 hover:text-black hover:bg-white">
                 BLOGS
               </li>
             </Link>
             <Link to="/aboutme">
-              <li className="p-4 cursor-pointer hover:text-black hover:bg-white">
+              <li className="p-4 my-2 hover:text-black hover:bg-white">
                 ABOUT ME
               </li>
             </Link>

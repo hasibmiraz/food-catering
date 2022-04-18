@@ -35,12 +35,6 @@ const Home = () => {
             >
               Learn More
             </button>
-            <button
-              onClick={() => navigate('/signin')}
-              className="text-white p-4 mx-auto my-3 md:m-3 rounded-lg bg-purple-400 hover:bg-purple-600 w-4/5 md:w-60"
-            >
-              Sign In
-            </button>
           </div>
         </div>
       </div>
